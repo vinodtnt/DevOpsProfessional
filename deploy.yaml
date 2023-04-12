@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: application-deployment
+  labels:
+    app: mykuberweb
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mykuberweb
+  template:
+    metadata:
+      labels:
+        app: mykuberweb
+    spec:
+      containers:
+      - name: mykuberweb
+        image: vinodtnt/mykubweb
+        ports:
+        - containerPort: 80
+
